@@ -1,0 +1,27 @@
+{
+	"Functional component": {
+		"prefix": "fc",
+		"body": [
+			"/** @jsxImportSource @emotion/react */",
+			"import { jsx } from \"@emotion/react\"",
+			"",
+			"interface Props {",
+			"\t",
+			"}",
+			"",
+			"const $TM_FILENAME_BASE: DRFC<Props> = (props) => {",
+			"\tconst {} = props",
+			"",
+			"\treturn (",
+			"\t\t<div>",
+			"\t\t</div>",
+			"\t)",
+			"}",
+			"",
+			"export default $TM_FILENAME_BASE",
+			""
+		],
+		"scope": "typescriptreact",
+		"description": "React typescript Functional component"
+	}
+}
