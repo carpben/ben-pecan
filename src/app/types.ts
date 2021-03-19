@@ -5,5 +5,5 @@ export type NodeBranch = {
 	type: string
 	children?: NodeChildren
 } & {
-	canAccess?: (userId: string) => boolean
+	canAccess: boolean
 }
