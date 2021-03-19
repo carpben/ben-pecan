@@ -29,6 +29,7 @@ const NodeComponent: DRFC<Props> = React.memo((props) => {
 	)
 
 	const clickable = canAccess && type !== "column"
+	const renderChildren = children && open
 
 	return (
 		<div>
@@ -52,6 +53,9 @@ const NodeComponent: DRFC<Props> = React.memo((props) => {
 					marginBottom: 4,
 					cursor: clickable ? "pointer" : "unset",
 				}}
+				other={{
+					disabled: !clickable,
+				}}
 			>
 				<div
 					css={[
@@ -62,20 +66,23 @@ const NodeComponent: DRFC<Props> = React.memo((props) => {
 					]}
 				>
 					<FontAwesomeIcon
-						icon={type === "column" ? faFont : children ? faChevronDown : faChevronRight}
+						icon={type === "column" ? faFont : renderChildren ? faChevronDown : faChevronRight}
 					/>
-				</div>{" "}
+				</div>
 				{node.name}
 			</Button>
-			{children && open && (
+
+			{renderChildren && (
 				<div
 					css={{
 						marginLeft: 20,
 					}}
 				>
-					{reliablyGetValues(children).map((child) => (
-						<NodeComponent node={child} openNode={openChildNode} />
-					))}
+					{reliablyGetValues(children!)
+						.slice(0, 5)
+						.map((child) => (
+							<NodeComponent node={child} openNode={openChildNode} key={child.name} />
+						))}
 				</div>
 			)}
 		</div>
