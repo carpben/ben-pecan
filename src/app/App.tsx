@@ -18,10 +18,8 @@ function App() {
 	useEffect(() => {
 		const request = async () => {
 			const children = (await requestChildren(openBranch)) as NodeChildren
-			console.log("requesing")
-			console.log(children)
 			const childrenKeys = flatten(openBranch.map((branchName) => [branchName, "children"]))
-			console.log(childrenKeys)
+
 			setTree((draftTree) => {
 				console.log(draftTree)
 				if (childrenKeys.length === 0) {
