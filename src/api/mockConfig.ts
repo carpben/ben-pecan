@@ -1,4 +1,4 @@
 export default {
 	childrenCount: 10,
-	denyAccessRangeStart: 5,
+	canAccess: (i: number) => i < 5,
 }

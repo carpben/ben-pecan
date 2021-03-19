@@ -11,6 +11,7 @@ export const mapObj = <K extends string, V extends any, T extends any>(
 	reliablyGetEntries(obj).forEach(([k, v]) => {
 		ret[k] = mapper(v, k)
 	})
+
 	return ret
 }
 
@@ -23,7 +24,7 @@ const getChildren = (count: number, type: string): NodeChildren =>
 			[name]: {
 				type,
 				name,
-				canAccess: i < mockConfig.denyAccessRangeStart ? true : false,
+				canAccess: mockConfig.canAccess(i),
 			},
 		}
 	}, {})
